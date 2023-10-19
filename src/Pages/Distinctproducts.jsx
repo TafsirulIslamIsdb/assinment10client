@@ -5,10 +5,7 @@ const Distinctproducts = ({product} ) => {
     
    
     const {  _id,Image, name, Brand_name, Type, Price, Rating } = product || {};
-    const addtocart =(product)=>{
-        console.log("I buy this product" ,product);
-
-    }
+   
    
     return (
         
@@ -28,9 +25,9 @@ const Distinctproducts = ({product} ) => {
                         <Link to={`/update/${_id}`}>
                             <button className="btn btn-secondary">Update</button>
                         </Link>
-                        <button onClick={()=>addtocart(product)}
+                        <Link to={`/details/${_id}`}><button  className="btn bg-orange-500">Details</button></Link>
 
-                            className="btn bg-orange-500">Details</button>
+                            {/* onClick={()=>addtocart(product)} */}
                     </div>
                 </div>
             </div>
