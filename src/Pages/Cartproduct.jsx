@@ -3,7 +3,7 @@
 
 import Swal from 'sweetalert2';
 
-const Cartproduct = ({product}) => {
+const Cartproduct = ({product,products,setproduct}) => {
 
 
 
@@ -35,8 +35,8 @@ const Cartproduct = ({product}) => {
                                 'Your product has been deleted.',
                                 'success'
                             )
-                            const remaining = products.filter(produc => produc._id !== _id);
-                            setproduct(remaining);
+                             const remaining = products.filter(produc => produc._id !== _id);
+                             setproduct(remaining);
                         }
                     })
 

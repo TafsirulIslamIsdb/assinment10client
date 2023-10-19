@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 
 const Login = () => {
     const [Ssuccess, setSsuccess] = useState('')
-    const { signIn} = useContext(AuthContext);
+    const { signIn,handelwithpopup} = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -58,7 +58,7 @@ const Login = () => {
                 </form>
 
                 <div className="">
-                    {/* <button className="btn btn-primary" onClick={handelwithpopup}>Login with google</button> */}
+                     <button className="btn btn-primary" onClick={handelwithpopup}>Login with google</button> 
                 </div>
 
                  {
