@@ -1,13 +1,38 @@
-import { NavLink } from "react-router-dom";
+import { useContext, useState } from "react";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const Login = () => {
+    const [Ssuccess, setSsuccess] = useState('')
+    const { signIn} = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+
     const handellogin=e=>{
         e.preventDefault();
         const form = new FormData(e.currentTarget);
         const email = form.get('email');
         const password = form.get('password');
         console.log(email,password);
+        signIn(email, password)
+        .then(result => {
+            console.log(result.user);
+            setSsuccess(
+                Swal.fire({
+                    icon: "success",
+                    title: "Good job",
+                    text: "User Login Successfully",
+                    footer: '<a href="">Why do I have this issue?</a>',
+                })
+            )
+            navigate(location?.state ? location.state : '/');
+
+        })
+        .catch(error => {
+            console.error(error);
+        })
 
     }
 
@@ -36,10 +61,10 @@ const Login = () => {
                     {/* <button className="btn btn-primary" onClick={handelwithpopup}>Login with google</button> */}
                 </div>
 
-                {/* {
+                 {
                     Ssuccess && <p>{Ssuccess}</p>
 
-                } */}
+                } 
 
                 <div className='p-5 text-green-800 font-semibold'>
                     <p>If you are new in here? <NavLink to="/register" className='text-blue-700'>Pleace Register</NavLink></p>

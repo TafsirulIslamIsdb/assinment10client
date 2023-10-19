@@ -1,9 +1,13 @@
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useContext, useState } from "react";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
 
 
 const Register = () => {
     const [Eerror, setEerror] = useState('')
+    const { createUser } = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate()
     const handelregister=e=>{
         e.preventDefault();
         const form = new FormData(e.currentTarget);
@@ -17,6 +21,14 @@ const Register = () => {
             setEerror('Password is not match the criteria')
             return
         }
+        createUser(email, password)
+        .then(result => {
+            console.log(result.user)
+            navigate(location?.state ? location.state : '/');
+        })
+        .catch(error => {
+            console.error(error)
+        })
        
 
     }
