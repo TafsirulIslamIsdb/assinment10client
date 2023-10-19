@@ -1,10 +1,23 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 
 const Register = () => {
-
+    const [Eerror, setEerror] = useState('')
     const handelregister=e=>{
         e.preventDefault();
+        const form = new FormData(e.currentTarget);
+        const email = form.get('email');
+        
+        const password = form.get('password');
+        const name=form.get('name')
+        console.log(name,email,password);
+        setEerror('')
+        if (!/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(password)) {
+            setEerror('Password is not match the criteria')
+            return
+        }
+       
 
     }
     return (
@@ -25,7 +38,7 @@ const Register = () => {
                 <input type="submit" value="Register" placeholder="Email" className="mb-4 w-1/2 py-2 px-4 btn btn-secondary" />
             </form>
             
-                {/* {
+                 {
                     Eerror && <p className="text-red-800">{Eerror}</p>
                 }
                 {/* {
