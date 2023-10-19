@@ -13,7 +13,7 @@ const Home = () => {
             {/* banner section */}
             <div className="bg-emerald-500 h-96">
 
-                <h2 className='text-6xl text-slate-900 font-bold text-center pt-20 '>Welcome to your dream <br /> Cars-World</h2>
+                <h2 className='text-3xl lg:text-6xl text-slate-900 font-bold text-center pt-20 '>Welcome to your dream <br /> Cars-World</h2>
 
             </div>
             {/* main card section */}

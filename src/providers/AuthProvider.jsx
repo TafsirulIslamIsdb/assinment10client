@@ -12,6 +12,13 @@ const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
     const googleprovider = new GoogleAuthProvider();
 
+
+    const [isDarkMode, setIsDarkMode] = useState(false);
+
+    const toggleTheme = () => {
+      setIsDarkMode(!isDarkMode);
+    };
+
     const handelwithpopup = () => {
         signInWithPopup(auth, googleprovider)
             .then(result => {
@@ -58,7 +65,8 @@ const AuthProvider = ({ children }) => {
         createUser,
         signIn,
         logOut,
-         handelwithpopup
+         handelwithpopup,
+         toggleTheme
     }
 
     return (
