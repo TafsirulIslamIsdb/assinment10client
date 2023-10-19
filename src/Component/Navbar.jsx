@@ -4,13 +4,10 @@ import logo from '../assets/Screenshot_1.png'
 import { AuthContext } from "../providers/AuthProvider";
  
 
-
-
-
 const Navbar = () => {
 
      const { user, logOut } = useContext(AuthContext);
-    // console.log(user);
+    
 
      const handleSignOut = () => {
         logOut()
@@ -57,7 +54,7 @@ const Navbar = () => {
 
                             <h2>{user.displayName}</h2>
                             
-                            <img className="rounded-full w-8 h-8" src={user.photoURL} alt="" />
+                            <img className="rounded-full w-9 h-9" src={user.photoURL} alt="" />
                             <button onClick={handleSignOut} className="btn">Sign Out</button>
                         </div>
                         :
