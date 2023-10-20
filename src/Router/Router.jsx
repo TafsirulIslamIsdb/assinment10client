@@ -29,17 +29,17 @@ const router = createBrowserRouter([
             {
                 path:'/products/:brand_name',
                 element:<Allproducts></Allproducts>,
-                loader: () => fetch('http://localhost:5001/products')
+                loader: () => fetch(' https://b8a10-brandshop-server-side-pi.vercel.app/products')
             },
             {
                 path:'update/:id',
                 element:<PrivateRoute><Update></Update></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5001/products/${params.id}`)
+                loader: ({ params }) => fetch(` https://b8a10-brandshop-server-side-pi.vercel.app/products/${params.id}`)
             },
             {
                 path:'/details/:id',
                 element:<PrivateRoute><Details></Details></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5001/products/${params.id}`)
+                loader: ({ params }) => fetch(` https://b8a10-brandshop-server-side-pi.vercel.app/products/${params.id}`)
             },
             {
                 path: '/add',
@@ -51,7 +51,7 @@ const router = createBrowserRouter([
             {
                 path: '/carts',                
                 element: <PrivateRoute><Mycarts></Mycarts></PrivateRoute>,
-                loader: () => fetch('http://localhost:5001/carts')
+                loader: () => fetch(' https://b8a10-brandshop-server-side-pi.vercel.app/carts')
 
             },
             {

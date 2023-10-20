@@ -3,7 +3,7 @@ import {  GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged
 import auth from "../Firebase/Firebase.config";
 
 
-export const AuthContext = createContext(null);
+export const AuthContext = createContext();
 
 
 
@@ -13,11 +13,9 @@ const AuthProvider = ({ children }) => {
     const googleprovider = new GoogleAuthProvider();
 
 
-    const [isDarkMode, setIsDarkMode] = useState(false);
+    
 
-    const toggleTheme = () => {
-      setIsDarkMode(!isDarkMode);
-    };
+   
 
     const handelwithpopup = () => {
         signInWithPopup(auth, googleprovider)
@@ -66,7 +64,7 @@ const AuthProvider = ({ children }) => {
         signIn,
         logOut,
          handelwithpopup,
-         toggleTheme
+         
     }
 
     return (

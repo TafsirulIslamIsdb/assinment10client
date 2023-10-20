@@ -23,7 +23,7 @@ const Cartproduct = ({product,products,setproduct}) => {
             if (result.isConfirmed) {
 
 
-                fetch(`http://localhost:5001/carts/${_id}`, {
+                fetch(` https://b8a10-brandshop-server-side-pi.vercel.app/carts/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

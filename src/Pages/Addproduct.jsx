@@ -22,7 +22,7 @@ const Addproduct = () => {
         console.log(newProduct);
 
         
-        fetch('http://localhost:5001/products', {
+        fetch(' https://b8a10-brandshop-server-side-pi.vercel.app/products', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

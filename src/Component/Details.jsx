@@ -12,7 +12,7 @@ const Details = () => {
     const addtocart =()=>{
         console.log("I buy this product" ,product);
 
-        fetch('http://localhost:5001/carts', {
+        fetch(' https://b8a10-brandshop-server-side-pi.vercel.app/carts', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
